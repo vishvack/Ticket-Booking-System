@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking - Ticket Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .booking-form {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group select {
+            cursor: pointer;
+        }
+        .payment-options {
+            margin-top: 10px;
+        }
+        .payment-options label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .confirm-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .confirm-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Complete Your Booking</h1>
+        <p>Provide your information and choose a payment method</p>
+    </div>
+    <div class="container">
+        <div class="booking-form">
+            <form id="bookingForm" action="#">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="ticketType">Ticket Type:</label>
+                    <select id="ticketType" name="ticketType">
+                        <option value="standard">Standard</option>
+                        <option value="premium">Premium</option>
+                        <option value="vip">VIP</option>
+                    </select>
+                </div>
+                <div class="form-group payment-options">
+                    <label>Payment Method:</label>
+                    <label>
+                        <input type="radio" name="paymentMethod" value="creditCard"> Credit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="paymentMethod" value="paypal"> PayPal
+                    </label>
+                </div>
+                <button class="confirm-button" type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const bookingForm = document.getElementById('bookingForm');
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = bookingForm.querySelector('#fullName').value;
+            const email = bookingForm.querySelector('#email').value;
+            const ticketType = bookingForm.querySelector('#ticketType').value;
+            const paymentMethod = bookingForm.querySelector('input[name="paymentMethod"]:checked');
+
+            if (fullName && email && ticketType && paymentMethod) {
+                // Simulate a booking confirmation (you would perform actual booking and payment here)
+                alert('Booking confirmed!\nThank you, ' + fullName + '!');
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>
